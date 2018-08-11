@@ -1,0 +1,2 @@
+# statistics.js
+statistics
