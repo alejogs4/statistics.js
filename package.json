@@ -1,5 +1,5 @@
 {
-  "name": "statistics",
+  "name": "@alejogs4/statistics",
   "version": "1.0.0",
   "description": "Statistics is a library to get data for describe the behavior of many data sets",
   "main": "index.js",
