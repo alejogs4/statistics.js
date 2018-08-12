@@ -1,10 +1,10 @@
 {
   "name": "@alejogs4/statistics",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Statistics is a library to get data for describe the behavior of many data sets",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/alejogs4/statistics.js/issues"
   },
-  "homepage": "https://github.com/alejogs4/statistics.js#readme"
+  "homepage": "https://github.com/alejogs4/statistics.js#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
 }
