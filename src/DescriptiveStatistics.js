@@ -42,3 +42,5 @@ class DescriptiveStatistics {
   }
 
 }
+
+module.exports = DescriptiveStatistics
