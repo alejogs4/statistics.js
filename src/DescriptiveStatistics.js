@@ -1,4 +1,11 @@
+/**
+ * Set of functions with the most comun operations of descriptive statistics
+ */
 class DescriptiveStatistics {
+  /**
+   * Sample must be a array of numbers to execute the operations
+   * @param {Array} sample is a array of numbers
+   */
   constructor(sample) {
     this.sample
     if(Array.isArray(sample)) {
@@ -14,7 +21,32 @@ class DescriptiveStatistics {
    * @returns {Number} most repeated value in the sample 
    */
   mode() {
-    return -1
+    if(this.sample.length > 1) {
+
+      let currentPosition = 0
+      let lastPosition = this.sample.lastIndexOf(this.sample[currentPosition])
+      let mostRepeated = 0
+      let mode = undefined
+      let amountOfTimesRepeated = (lastPosition - currentPosition) + 1
+
+      while(this.sample[currentPosition] !== undefined) {
+        if(mostRepeated < amountOfTimesRepeated) {
+          mostRepeated = amountOfTimesRepeated
+          mode = this.sample[currentPosition]
+        }
+        currentPosition = lastPosition + 1
+        lastPosition = this.sample.lastIndexOf(this.sample[currentPosition])
+
+        // Get the amount of time that the current value is repeated in the array
+        const calcTimesRepeated = (lastPosition - currentPosition) + 1
+        amountOfTimesRepeated =  calcTimesRepeated < amountOfTimesRepeated ? amountOfTimesRepeated : calcTimesRepeated
+      }
+      return amountOfTimesRepeated === 1 && this.sample.length > 1 ? undefined : mode
+    }
+    else if(this.sample.length === 1) {
+      return this.sample[0]
+    }
+    return undefined 
   }
 
   /**
