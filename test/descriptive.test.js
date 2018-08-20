@@ -23,10 +23,10 @@ describe('Avg', function() {
   })
 })
 
-describe('Quantile', function() {
+describe('Percentile', function() {
   it('Return the percentage of data that is fewer and 100 - percentage that is bigger', function() {
     const sample = new DescriptiveStatistics([3,3,1,5,7,8,9])
-    assert.strictEqual(sample.quantile(35), 3.2, 'Should return 3.2')
+    assert.strictEqual(sample.percentile(35), 3.2, 'Should return 3.2')
   })
 })
 
