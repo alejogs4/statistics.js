@@ -93,6 +93,49 @@ class DescriptiveStatistics {
     }
   }
 
+  /**
+   * Get the difference between percentile 75 and percentile 25
+   * @returns {Number} variance of the 50% of data
+   */
+  iqr() {
+    return this.quantile(75) - this.quantile(25)
+  }
+
+  /**
+   * Get the difference between the max element of your sample and the min element
+   * @returns {Number} difference between xtreme values
+   */
+  range() {
+    return Math.max.apply(null ,this.sample) - Math.min.apply(null, this.sample)
+  }
+
+  /**
+   * Get the variance of the data respect their average
+   * @returns {Number} number that represents the variance respect to average of data
+   */
+  variance() {
+    const avg = this.avg()
+    let variance = 0
+    this.sample.forEach(num => variance += Math.pow(num - avg, 2) )
+    return variance / (this.sample.length - 1)
+  }
+
+  /**
+   * Get the standard deviation that is equal to square root of variance
+   * @returns {Number}
+   */
+  standardDeviation() {
+    return Math.abs( Math.sqrt(this.variance()) )
+  }
+
+  /**
+   * Get how many times the standard deviation is in the average
+   * @returns {Number} the percent of times that standard deviation is in the average of data
+   */
+  variationCoefficient() {
+    return (this.standardDeviation() / this.avg()) * 100
+  }
+
 }
 
 module.exports = DescriptiveStatistics
