@@ -74,17 +74,17 @@ class DescriptiveStatistics {
   }
 
   /**
-   * Get the quantile of data set
+   * Get the percentile of data set
    * @param {Number} percentage shold be a number between 1 and 100
    */
-  quantile(percentage) {
+  percentile(percentage) {
     if(percentage > 100 || percentage < 1) {
       // Here throw the error message if the percentage parameter is incorrect
       throw new Error('The percentage value should be a number between 1 and 100')
     }
     else {
       /**
-       * Get the i and h to return the quantile
+       * Get the i and h to return the percentile
        */
       const length = this.sample.length
       const i = (((length - 1) * percentage) / 100) + 1
@@ -98,7 +98,7 @@ class DescriptiveStatistics {
    * @returns {Number} variance of the 50% of data
    */
   iqr() {
-    return this.quantile(75) - this.quantile(25)
+    return this.percentile(75) - this.percentile(25)
   }
 
   /**
